@@ -15,7 +15,7 @@ test('password can be updated', function () {
 
     expect(Hash::check('new-password', $user->fresh()->password))->toBeTrue();
 })->skip(function () {
-    return ! Features::enabled(Features::resetPasswords());
+    return ! Features::enabled(Features::updatePasswords());
 }, 'Password updates are not enabled.');
 
 test('current password must be correct', function () {
@@ -31,7 +31,7 @@ test('current password must be correct', function () {
 
     expect(Hash::check('password', $user->fresh()->password))->toBeTrue();
 })->skip(function () {
-    return ! Features::enabled(Features::resetPasswords());
+    return ! Features::enabled(Features::updatePasswords());
 }, 'Password updates are not enabled.');
 
 test('new passwords must match', function () {
@@ -47,5 +47,5 @@ test('new passwords must match', function () {
 
     expect(Hash::check('password', $user->fresh()->password))->toBeTrue();
 })->skip(function () {
-    return ! Features::enabled(Features::resetPasswords());
+    return ! Features::enabled(Features::updatePasswords());
 }, 'Password updates are not enabled.');
